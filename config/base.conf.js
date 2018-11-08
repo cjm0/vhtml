@@ -22,12 +22,12 @@ const glob = require('glob')
 const files = glob.sync(path.resolve(__dirname, '../src/pages') + '/*/index.vue')
 
 const getFilesName = () => { // 获取多页面文件名字
-    let filesName = []
+    let filesName = ['/']
     files.forEach(file => {
         let dirName = path.dirname(file) // main.js 父级文件夹名字
         let fileName = dirName.substring(dirName.lastIndexOf('\/') + 1)
 
-        filesName.push('/' + fileName)
+        filesName.push('/' + fileName + '.html')
     })
     return filesName
 }
