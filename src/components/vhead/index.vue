@@ -1,11 +1,11 @@
 <template lang="pug">
 .v-head
     .main
-        Vlink(href="index.html")
+        router-link(to="index.html")
             img.img(src="./base_logo.png")
         ul.tab.f18.clearfix
             li.tab_list.clearfix(v-for="(item, index) in tabs", @click="tab(index)", :class="index == cur ? 'tab_active' : ''")
-                Vlink.fl.pl20.pr20(:href="item.link") {{item.name}}
+                router-link.link.fl.pl20.pr20(:to="item.link") {{item.name}}
                 span(v-if="index != tabs.length - 1").fl.tab_line
                 i(v-if="index == cur").tab_dot 
 </template>

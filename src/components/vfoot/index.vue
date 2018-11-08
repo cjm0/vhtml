@@ -88,7 +88,7 @@ export default {
                 },
                 {
                     name: '手机客户端',
-                    link: 'download.html',
+                    link: '/download.html',
                     target: '_self'
                 },
             ]

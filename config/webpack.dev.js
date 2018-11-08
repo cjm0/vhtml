@@ -13,7 +13,7 @@ module.exports = merge(baseWebpackConfig, {
         publicPath: '/', // 资源引用路径前后都有斜杠
     },
     devServer: {
-        contentBase: path.join(__dirname, '..', `${config.base.fileName}`), // 用来指定index.html所在目录
+        // contentBase: path.join(__dirname, '..', `${config.base.fileName}`), // 用来指定index.html所在目录
         clientLogLevel: "warning", // 热更新时阻止控制台显示消息 太多了 没加eslint none
         overlay: {warnings: true, errors: true}, // webpack的eslint等错误、警告提示显示在页面中 全为true会停止页面运行
         noInfo: true, // 每次启动和保存，只显示webpack编译的错误和警告信息

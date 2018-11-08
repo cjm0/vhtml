@@ -22,12 +22,14 @@ const glob = require('glob')
 const files = glob.sync(path.resolve(__dirname, '../src/pages') + '/*/index.vue')
 
 const getFilesName = () => { // 获取多页面文件名字
-    let filesName = ['/']
+    let filesName = []
     files.forEach(file => {
         let dirName = path.dirname(file) // main.js 父级文件夹名字
         let fileName = dirName.substring(dirName.lastIndexOf('\/') + 1)
 
-        filesName.push('/' + fileName + '.html')
+        if (fileName !== 'index') {
+            filesName.push('/')
+        }
     })
     return filesName
 }
@@ -35,7 +37,6 @@ const getFilesName = () => { // 获取多页面文件名字
 module.exports = {
     base: {
         rootPath: '/',
-        fileName: 'dist',
         filePath: 'dist',
     },
     prerender: getFilesName(), // 预渲染页面文件
@@ -47,7 +48,7 @@ module.exports = {
             verbose: true, // 激活日志记录
             disableDotRule: true, // 允许使用点
             rewrites: [ // history 模式路由处理
-                {from: /\//, to: '/index.html'},
+                {from: /\/index/, to: '/index.html'},
             ] 
         },
         proxy: {
