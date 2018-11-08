@@ -6,7 +6,9 @@
 </style>
 
 <template lang="pug">
-    a(class="v-link", :href="link", :target="tag", @click="vClick", :name="track")
+    router-link(class="v-link", :to="link", :target="tag", @click.native="vClick", :name="track", teyp="router", v-if="isRouter")
+        slot
+    a(class="v-link", :href="link", :target="tag", @click="vClick", :name="track", v-else)
         slot
         
 </template>
@@ -16,14 +18,6 @@ export default {
     name: 'Vlink',
     props: {
         href: {
-            type: String,
-            default: '',
-        },
-        app: {
-            type: String,
-            default: '',
-        },
-        wap: {
             type: String,
             default: '',
         },
@@ -38,20 +32,28 @@ export default {
     },
     computed: {
         link() {
-            if (config.system.isApp && this.app) {
-                return this.app || 'javascript:;'
-            } else {
-                return this.href || this.wap || 'javascript:;'
-            }
+            return this.href || 'javascript:;'
         },
         tag() {
             if (this.target) {
                 return this.target
-            } else if (config.system.isApp) { // app
-                return '_blank'
             } else {
                 return '_self'
             }
+        }
+    },
+    data() {
+        return {
+            isRouter: false
+        }
+    },
+    created() {
+        if (this.link) {
+            this.$root.$data.routerName.forEach(v => {
+                if (v.indexOf(this.link) > -1) {
+                    this.isRouter = true
+                }
+            })
         }
     },
     methods: {

@@ -4,7 +4,7 @@
         .clearfix
             .links_wrap.fl
                 .links.clearfix
-                    Vlink.link(:href="item.link", :target="item.target", v-for="(item, index) in links", :key="index") {{item.name}}
+                    Vlink.link(:href="item.link", :target="item.target", v-for="(item, index) in links", :key="index", @click="active(item.cur)") {{item.name}}
                 Vlink.tip(href="dangrous.html")
                     img.icon_dangrous(src="./dangrous.png")
                     span 风险提示
@@ -58,40 +58,50 @@ export default {
             links: [
                 {
                     name: '公司简介',
-                    link: 'information.html#0',
-                    target: '_self'
+                    link: 'information.html',
+                    target: '_self',
+                    cur: 3
                 },
                 {
                     name: '平台保障',
                     link: 'security.html',
-                    target: '_self'
+                    target: '_self',
+                    cur: 1
                 },
                 {
                     name: '合规体系',
                     link: 'compliance.html',
-                    target: '_self'
+                    target: '_self',
+                    cur: 2
                 },
                 {
                     name: '信息披露',
-                    link: 'information.html#0',
-                    target: '_self'
+                    link: 'information.html',
+                    target: '_self',
+                    cur: 3
                 },
                 {
                     name: '运营月报',
                     link: 'https://a.jindanlicai.com/xwa/report_pc',
-                    target: '_blank'
+                    target: '_blank',
                 },
                 {
                     name: '联系我们',
                     link: 'contactus.html',
-                    target: '_self'
+                    target: '_self',
+                    cur: 4
                 },
                 {
                     name: '手机客户端',
-                    link: '/download.html',
+                    link: 'download.html',
                     target: '_self'
                 },
             ]
+        }
+    },
+    methods: {
+        active(cur) {
+            localStorage.setItem('cur', cur)
         }
     }
 };

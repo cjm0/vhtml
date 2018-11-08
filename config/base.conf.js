@@ -1,6 +1,5 @@
 const path = require('path') 
 
-
 // 获取本地ip
 const os = require('os')
 const getIp = () => { 
@@ -16,8 +15,7 @@ const getIp = () => {
     }
 }
 
-
-// 多页面路径处理
+// 获取静态页面路由
 const glob = require('glob')
 const files = glob.sync(path.resolve(__dirname, '../src/pages') + '/*/index.vue')
 
@@ -30,11 +28,12 @@ const getFilesName = () => { // 获取多页面文件名字
         if (fileName == 'index') {
             filesName.push('/')
         } else {
-            filesName.push('/' + fileName)
+            filesName.push('/' + fileName + '.html')
         }
     })
     return filesName
 }
+
 
 module.exports = {
     base: {

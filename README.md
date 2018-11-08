@@ -4,7 +4,7 @@
 
 1. 本地开发用 `historyApiFallback.rewrites` 重写地址，确保刷新能找到路由   
 
-2. 保持原网址不变，每个路由保持两个 `/a /a.html`
+2. 保持原网址不变，路由 `/a.html`
 
 3. 每个页面视情况重新设置标题、关键字、描述，注意标签的语义化  
 
@@ -30,6 +30,8 @@ yarn build
 预渲染插件安装不上用下面的命令
 
 `cnpm install prerender-spa-plugin -D`
+
+每做好一个新页面得修改跳转链接
 
 ## 地址
 

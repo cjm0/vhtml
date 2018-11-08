@@ -8,8 +8,11 @@ import '@/assets/common.js'
 import components from '@/components/index.js'
 
 
-
-
+// 收集已经改好的页面的名字
+let routerName = []
+router.options.routes.forEach(v => {
+    routerName.push(v.path)
+})
 
 document.setTitle = function(title) {
     document.title = `${title}-` + document.title
@@ -65,6 +68,11 @@ Vue.config.productionTip = false
 // new 创建对象实例后需要赋值给变量
 const vue = new Vue({ 
     el: '#app',
+    data() {
+        return {
+            routerName
+        }
+    },
     router,
     render: h => h(App), // App 组件并不是根组件
     mounted () {
