@@ -48,7 +48,7 @@ export default {
         }
     },
     created() {
-        if (this.link) {
+        if (this.link && !/^(http|https|\/\/)/.test(this.link)) {
             this.$root.$data.routerName.forEach(v => {
                 if (v.indexOf(this.link) > -1) {
                     this.isRouter = true

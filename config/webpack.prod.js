@@ -31,9 +31,6 @@ module.exports = merge(baseWebpackConfig, {
             [ // 删除匹配的文件
                 `${config.base.filePath}/*.html`, 
                 `${config.base.filePath}/*/*.html`, 
-                `${config.base.filePath}/static`, 
-                `${config.base.filePath}/download`, 
-                `${config.base.filePath}/rule`, // 删除以上几个复制过来的文件 
                 `${config.base.filePath}/js`, 
                 `${config.base.filePath}/css`, 
                 `${config.base.filePath}/img`, 
@@ -55,10 +52,6 @@ module.exports = merge(baseWebpackConfig, {
                     from: path.resolve(__dirname, '../src/public/'),
                     to: 'public/',
                 },
-                { 
-                    from: path.resolve(__dirname, '../static/'),
-                    to: './',
-                }
             ], 
             {
                 ignore: [], // 可以用模糊匹配

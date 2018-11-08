@@ -8,7 +8,7 @@ import '@/assets/common.js'
 import components from '@/components/index.js'
 
 
-// 收集已经改好的页面的名字
+// 收集路由的名字
 let routerName = []
 router.options.routes.forEach(v => {
     routerName.push(v.path)
