@@ -33,6 +33,10 @@ export default new Router({
         {
             path: '/temp.html',
             component: resolve => require(['../pages/temp/index.vue'], resolve)
+        },
+        {
+            path: '*',
+            component: resolve => require(['../pages/404/index.vue'], resolve)
         }
     ]
 })

@@ -1,25 +1,27 @@
 <style lang="less">
      @import '../../assets/mixin';
-    .temp-index{
-        
+    .err-index{
+        .text{
+            margin-top: 120px;
+            font-size: 20px;
+        }
     }
 </style>
 
 <template lang="pug">
-    .temp-index 
+    .err-index 
         Vhead
-        .main this is temp
-            
-        Vfoot
-        Vfixed
+        .main 
+            p.text.tc 页面找不到了~
+
 </template>
 
 <script>
 export default {
-    name: 'temp',
+    name: 'err',
     data() {
         return {
-           title: 'temp'
+           title: '错误'
         }
     },
     mounted() {
