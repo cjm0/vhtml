@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head id="container" name="container">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>银行卡使用说明</title>
+</head>
+
+<body>
+    <center>
+        <h4>普通用户投资</h4></center>
+    <style>
+    table {
+        border-collapse: collapse;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid #999;
+    }
+    </style>
+    <script type="text/javascript" src="http://7xj5zr.com2.z0.glb.qiniucdn.com/js/lib/zepto.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        function fillData(str, json) {
+            return str.replace(/\{\$\w+\}/g, function(s) {
+                var name = s.substring(2, s.length - 1);
+                return json[name];
+            });
+        }
+        var htmlTem='<tr><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>{$bc_name}</strong></span></span></td><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span></td><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">{$bc_one_invest_order_limit}</font></strong></span></span></td><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>{$bc_max_invest_day}</strong></span></span></td><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>{$bc_count_invest_limit}</strong></span></span></td><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#159e1c">{$bc_frequency_month_limit}</font></strong></span></span></td><td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>100元</strong></span></span></td></tr>';
+		var html='<tr><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>支持银行</strong></span></span></td><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>账户类型</strong></span></span></td><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>单笔限额</strong></span></span></td><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>每日限额</strong></span></span></td><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>投资限额</strong></span></span></td><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>每月充值次数</strong></span></span></td><td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>最低投资金额</strong></span></span></td></tr>'
+        $.getJSON('http://m.jindanlicai.com/bank/jsonp_bank?callback=?', function(json) {
+                var json=eval(json);
+                for (var i = 0; i < json.length; i++) {
+                    html+=fillData(htmlTem,json[i]);
+                };
+            $("#banklist").html("<tbody>"+html+"</tbody>");
+        });
+    })
+    </script>
+    <table align="center" border="1.5" cellpadding="7" cellspacing="0" width="94%" frame="box"  id="banklist">
+        <tbody>
+            <tr><td style="text-align:center">数据加载中....</td></tr>
+        </tbody>
+    </table>
+    <br>
+    <center>
+        <h4>普通用户提现</h4></center>
+    <table align="center" border="1.5" cellpadding="7" cellspacing="0" width="94%" frame="box">
+        <tbody>
+            <tr>
+                <td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>支持银行</strong></span></span>
+                </td>
+                <td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>账户类型</strong></span></span>
+                </td>
+                <td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>单笔限额</strong></span></span>
+                </td>
+                <td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>每日限额</strong></span></span>
+                </td>
+                <td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>每日可提现次数</strong></span></span>
+                </td>
+                <td bgcolor="#ffeebc"><span style="font-size: 14px"><span style="font-family: 黑体"><strong>最低提现金额</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>中国民生银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>中国工商银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>中国农业银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>中国银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>中国建设银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>招商银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>中国光大银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>兴业银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>平安银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>广东发展银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+            <!--tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>上海银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr-->
+            <tr>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>邯郸银行</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>借记卡</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong><font color="#FF0000">5万/笔</font></strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>5万</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>3次</strong></span></span>
+                </td>
+                <td><span style="font-size: 14px"><span style="font-family: 黑体"><strong>2元</strong></span></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

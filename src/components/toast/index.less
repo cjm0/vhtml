@@ -1,0 +1,24 @@
+.v-toast {
+    &-box {
+        z-index: 1000;
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        max-width: 156px;
+        border-radius: 4px;
+        padding: 8px 12px;
+        transform: translate(-50%, -50%);
+        background: rgba(32, 33, 65, .7);
+        text-align: center;
+        color: #fff;
+        line-height: 1.5;
+    }
+    &-mask {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, .2);
+    }
+}

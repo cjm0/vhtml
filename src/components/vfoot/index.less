@@ -1,0 +1,104 @@
+.v-foot {
+    background: #474747;
+    padding-top: 43px;
+    color: #d5d5d5;
+
+    .links_wrap{
+        width: 635px;
+        padding-bottom: 20px;
+        .links{
+            margin-left: -15px;
+            .link{
+                font-size: 16px;
+                float: left;
+                margin-bottom: 20px;
+                padding: 0 15px;
+                border-right: 1px solid #6c6c6c;
+                &:hover{
+                    color: @orange;
+                }
+            }
+        }
+        .tip{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #fff;
+            .icon_dangrous{
+                width: 14px;
+                margin-right: 6px;
+            }
+            .icon_arrowright{
+                width: 14px;
+                margin-left: 3px;
+            }
+            &:hover{
+                color: @orange;
+            }
+        }
+        .text{
+            color: #fff;
+            font-size: 12px;
+            line-height: 16px;
+        }
+        .icons_list{
+            margin-top: 10px;
+            margin-left: 78px;
+            .icons_wrap{
+                margin-right: 30px;
+            }
+            .icons{
+                width: 106px;
+                height: 38px;
+                transition: All .4s ease-in-out;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    
+    .wx_wrap{
+        box-sizing: border-box;
+        padding-left: 85px;
+        width: 292px;
+        border-left: 1px solid #6c6c6c;
+        border-right: 1px solid #6c6c6c;
+        .text{
+            margin-bottom: 25px;
+        }
+        .img{
+            width: 122px;
+        }
+    }
+
+    .phone_wrap{
+        color: #fff;
+        .phone{
+            font-size: 30px;
+            margin: 24px 0;
+        }
+        .ul{
+            line-height: 1.5;
+        }
+    }
+
+    .copyright_wrap{
+        font-size: 12px;
+        color: #fff;
+        border-top: 1px solid #6c6c6c;
+        text-align: center;
+        padding: 30px 0 200px;
+        a:hover{
+            color: @orange;
+        }
+        .img{
+            width: 20px;
+            margin-right: 2px;
+            vertical-align: -6px;
+        }
+        em{
+            margin: 0 5px;
+        }
+    }
+}

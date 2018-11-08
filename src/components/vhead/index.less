@@ -1,0 +1,38 @@
+.v-head {
+    padding: 15px 0;
+    .img{
+        width: 170px;
+        height: 48px;
+    }
+    .tab{
+        margin-top: 15px;
+        float: right;
+        &_list{
+            float: left;
+            position: relative;
+            &:hover{
+                color: @orange;
+            }
+        }
+        &_active{
+            color: @orange;
+        }
+        &_line{
+            margin-top: 1px;
+            width: 1px;
+            height: 15px;
+            background: #c7c7c7;
+        }
+        &_dot{
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: @orange;
+            border-radius: 20px;
+            overflow: hidden;
+            left: 50%;
+            margin-left: -4px;
+            top: 22px;
+        }
+    }
+}
