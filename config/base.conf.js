@@ -27,8 +27,10 @@ const getFilesName = () => { // 获取多页面文件名字
         let dirName = path.dirname(file) // main.js 父级文件夹名字
         let fileName = dirName.substring(dirName.lastIndexOf('\/') + 1)
 
-        if (fileName !== 'index') {
+        if (fileName == 'index') {
             filesName.push('/')
+        } else {
+            filesName.push('/' + fileName)
         }
     })
     return filesName
